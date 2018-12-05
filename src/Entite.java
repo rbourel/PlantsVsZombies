@@ -19,6 +19,8 @@ public abstract class Entite {
 	}
 
 	public abstract void moinsHp(int hp);
+	
+	public abstract void setSpeed(double speed);
 
 	public void setPosition(Position p){
 		this.position = p;
@@ -90,7 +92,19 @@ public abstract class Entite {
 		return false;
 	}
 	
-	public boolean colColdPea()	  {
+	
+	/**
+	 * 
+	 * @param x fait des dommage egale a x a tout les zombie present sur la ligne et seulement a droite du Jalapeno
+	 */
+	public void damageJalapeno(int x) { 
+		for (Entite entite : GameWorld.entites) {
+			if (((entite instanceof Zombies)) && (entite.hitbox().ligneJalapeno(hitbox())))
+				entite.moinsHp(x);
+		}
+	}
+	
+	public boolean colCold()	  {
 		for (Entite entite : GameWorld.entites) {
 			if (((entite instanceof Zombies)) && (entite.hitbox().equals(hitbox()))) {
 				return true;
@@ -99,25 +113,14 @@ public abstract class Entite {
 		return false;
 	}
 	
-
-	public void setSpeedZombie(double x) { 
+	public void speedZombie(double x) { 
 		for (Entite entite : GameWorld.entites) {
 			if (((entite instanceof Zombies)) && (entite.hitbox().equals(hitbox())))
-				entite.setSpeedZombie(0.01);
+				entite.setSpeed(x);
+			
 		}
 	}
 	
-	
-	/**
-	 * 
-	 * @param x fait des dommage egale � x a tout les zombie present sur la ligne et � droite du Jalapeno
-	 */
-	public void damageJalapeno(int x) { 
-		for (Entite entite : GameWorld.entites) {
-			if (((entite instanceof Zombies)) && (entite.hitbox().ligneJalapeno(hitbox())))
-				entite.moinsHp(x);
-		}
-	}
 	
 	
 

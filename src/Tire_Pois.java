@@ -64,5 +64,10 @@ public class Tire_Pois extends Plant {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void setSpeed(double speed) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

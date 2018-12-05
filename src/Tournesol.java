@@ -71,6 +71,12 @@ public class Tournesol extends Plant {
 		Position p = new Position(getX() + 0.05, getY());
 		return p;
 	}
+
+	@Override
+	public void setSpeed(double speed) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

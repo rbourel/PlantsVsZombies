@@ -50,6 +50,11 @@ public class Sun extends Entite {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void setSpeed(double speed) {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

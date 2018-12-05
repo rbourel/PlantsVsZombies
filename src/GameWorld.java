@@ -65,7 +65,7 @@ public class GameWorld {
 
 		timerSun = new Timer(6500);
 		timerZombie = new Timer(Timerdifficulty);
-		debut = new Timer(20000); //20sec sans Zombie au debut
+		debut = new Timer(2000); //20sec sans Zombie au debut
 		rand = new Random();
 
 	}

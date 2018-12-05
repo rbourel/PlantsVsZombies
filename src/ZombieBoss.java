@@ -2,27 +2,22 @@ import Picture.ModifyWayPicture;
 
 public class ZombieBoss extends Zombies {
 	private static int hp = 1000;
-	private static final double speed = 0.01;
-	public double coldSpeed = speed/2;
 	Timer timeFreeze = new Timer(1000);
 	private static final int damage = 30;
 	private final double taille = 0.09;
 	private boolean bouge;
+	private double vitesse;
 	private Timer dps;
 	private boolean takeDamage = false;
 	
 	public ZombieBoss (double x, double y) {
 		super(damage,x,y);
 		bouge = true;
+		vitesse = speed;
 	}
 	public void step() {
 		// TODO Auto-generated method stub
-		if(colColdPea()) {
-			timeFreeze.restart();
-		}
-		if(!timeFreeze.hasFinished()) {
-			setSpeedZombie(coldSpeed);
-		}
+		
 		
 		if (colPlant()) {
 			bouge = false;
@@ -47,6 +42,11 @@ public class ZombieBoss extends Zombies {
 		takeDamage = true;
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public void setSpeed(double speed) {
+		vitesse = speed;
 	}
 
 	@Override

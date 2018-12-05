@@ -83,4 +83,10 @@ public class Jalapeno extends Plant {
 				
 	}
 
+	@Override
+	public void setSpeed(double speed) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -1,7 +1,8 @@
 
 public class Zombies extends Entite {
 	private int hp;
-	private double speed;
+	protected double speed = 0.0125;
+	protected double speedCold = speed/1.5;
 	private int damage;
 	
 	public Zombies(int damage, double x, double y) {
@@ -29,10 +30,6 @@ public class Zombies extends Entite {
 	public double getSpeed() {
 		return speed;
 	}
-	
-	public void setSpeed(double x) {
-		this.speed = x;
-	}
 
 	public int getDamage() {
 		return damage;
@@ -44,6 +41,11 @@ public class Zombies extends Entite {
 	}
 	@Override
 	public void moinsHp(int hp) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
 		
 	}

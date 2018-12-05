@@ -25,7 +25,7 @@ public class Cold_TirePois extends Plant {
 	}
 	public void step() {
 		if (timepois.hasFinished()) {
-			GameWorld.buffCreate.add(new Projectile(this.position.getX(), this.position.getY())) ; //(new Projectile(this.position.getX(), this.position.getY())); //this.position.getX(), this.position.getY()
+			GameWorld.buffCreate.add(new ColdPea(this.position.getX(), this.position.getY())) ; //(new Projectile(this.position.getX(), this.position.getY())); //this.position.getX(), this.position.getY()
 			timepois.restart();
 		}
 		if(hp <= 0) supprPlantGrid();
@@ -69,6 +69,11 @@ public class Cold_TirePois extends Plant {
 		takeDamage = true;
 		// TODO Auto-generated method stub
 
+	}
+	@Override
+	public void setSpeed(double speed) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

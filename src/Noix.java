@@ -65,4 +65,10 @@ public class Noix extends Plant {
 	  //  System.out.println("Noix " + p.getX());
 	    return p;
 	  }
+
+	@Override
+	public void setSpeed(double speed) {
+		// TODO Auto-generated method stub
+		
+	}
 }

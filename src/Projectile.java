@@ -41,5 +41,10 @@ public class Projectile extends Entite {
 		
 		
 	}
+	@Override
+	public void setSpeed(double speed) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
