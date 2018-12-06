@@ -43,7 +43,10 @@ public abstract class Plant extends Entite {
 		// TODO Auto-generated method stub
 		
 	}
-	
+	/**
+	 * La fonction permet de supprimer la Plante presente du monde mais aussi de la case ou elle est
+	 * car les cases sont gerees separement du monde
+	 */
 	public void supprPlantGrid() {
 		GameWorld.buffDelete.add(this) ;
 		Position p = Grid.worldToGrid(getX(), getY());

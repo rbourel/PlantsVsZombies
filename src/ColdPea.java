@@ -23,13 +23,11 @@ public class ColdPea extends Entite {
 		this.position.setX(this.position.getX() + TRUC_MOVE_X);
 		if(this.position.getX() > 1)
 			GameWorld.buffDelete.add(this);
+		
 		if(colZombies() != null) {
 			speedZombie(0.009);
 		}
 		
-		if(colCold()) {
-			System.out.println("ZEDFRGTHYUIJKLMPMOLIUYTRGFESD");
-		}
 		if (colZombies() != null) {
 		      GameWorld.buffDelete.add(this);
 		      damageZombie(damage);

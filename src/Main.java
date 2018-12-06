@@ -1,4 +1,11 @@
 
+
+/**
+ * 
+ * @author Rodrigue
+ *Le but du Jeu est de tuez les Zombie grace au nombreuses Plantes presentes dans le jeu
+ *La Partie est gagnez quand vous avez Tuez le nombre de Zombie equivalent à la variable finale MaxZombie de GameWorld
+ */
 public class Main {
 
 	public static final int width =1280;

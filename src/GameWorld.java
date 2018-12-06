@@ -10,22 +10,37 @@ import java.util.Set;
 
 import Picture.ModifyWayPicture;
 
+/**
+ * 
+ * @author Rodrigue
+ * @author Vincent
+ * --------------------------------------------
+ */
+/**
+ *	La Class GameWorld s'occupe du Monde que l'on va creer, c'est donc ici que va etre creez toute les variables importantes du jeu
+ */
 public class GameWorld {
-
+	
+	/** Money du Jeu pour acheter des Plante permettant de se defendre contre les Zombie */
 	public static Integer money;
 	// l'ensemble des entites, pour gerer (notamment) l'affichage
 	static List<Entite> entites;
+	/** Buffer de creation d'entite */
 	static List<Entite> buffCreate;
+	/** Buffer de suppression d'entite */
 	static List<Entite> buffDelete;
-	static Set<Sun> sunPresent; //Je veut rajouter les Sun present sur la map pour les supprimer //Non fonctionelle 
-	static List<Entite>[] entitesByLine;
+
 	Random rand;
+	/** Timer d'apparition de Zombie */
 	Timer timerZombie;
+	/** Timer d'apparition de Soleil */
 	Timer timerSun;
+	/**Timer pour eviter l'apparition de Zombie au debut */
 	Timer debut;
+	/** Nombre de possibilités de random possible pour determiner le prochain Zombie, plus le nombre est petit, plus des Zombie puissant apparaitront */
 	int nbPossibZomb;
 
-
+	/** Tableau d'entite pour gerez la presence de Plante sur les case du Jardin */
 	public static Entite[][] plantGrid = new Plant[9][5];
 
 	private static boolean mouseClick;
@@ -65,7 +80,7 @@ public class GameWorld {
 
 		timerSun = new Timer(6500);
 		timerZombie = new Timer(Timerdifficulty);
-		debut = new Timer(2000); //20sec sans Zombie au debut
+		debut = new Timer(5000); //20sec sans Zombie au debut
 		rand = new Random();
 
 	}
@@ -343,15 +358,7 @@ public class GameWorld {
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.filledRectangle(0.5, 0.5, 1, 1);
 		StdDraw.picture(Grid.MaxHaut.getX()/2, Grid.MaxHaut.getY()/2,ModifyWayPicture.Jardin,Grid.MaxHaut.getX(), Grid.MaxHaut.getY());
-		// TODO
-		//	Grid.dessineGrille();
-		//		if (mouseClick) {
-		//			StdDraw.setPenColor(StdDraw.DARK_GRAY);
-		//
-		//			StdDraw.rectangle(mouseX * Grid.CASE_SIZE_X+Grid.CASE_SIZE_X/2, mouseY*Grid.CASE_SIZE_Y +Grid.CASE_SIZE_Y/2,
-		//					Grid.CASE_SIZE_X/2, Grid.CASE_SIZE_Y/2);
-		//			
-		//		}
+		
 		//Marqueur de position actuel
 		double moX = StdDraw.mouseX();
 		double moY = StdDraw.mouseY();

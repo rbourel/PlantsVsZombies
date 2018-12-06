@@ -6,17 +6,23 @@ public class ZombieDisco extends Zombies{
 	private static final int damage = 30;
 	private final double taille = 0.09;
 	private boolean bouge;
+	/** Vitesse d'attaque du Zombie */
 	private Timer attackSpeed;
+	/** Vitesse du Zombie */
 	private double vitesse;
+	/** Renvoie True si le Zombie a pris des degats */
 	private boolean takeDamage = false;
-	Timer timeFreeze = new Timer(800);
+	/** Permet de faire Spawnez les Zombie autour du Zombie Disco, equivalent a un Timer mais avec des Int*/
 	private int spawnZ = 0;
+	/** Permet de gelez un certains temps le Zombie, equivalent a un Timer mais avec des Int */
+	private Timer timerFreeze;
 
 	public ZombieDisco (double x, double y) {
 		super(damage,x,y);
 		bouge = true;
-		attackSpeed = new Timer(1500);
+		attackSpeed = new Timer(1250);
 		vitesse = speed;
+		timerFreeze = new Timer(800);
 	}
 	public void step() {
 		// TODO Auto-generated method stub
@@ -53,12 +59,17 @@ public class ZombieDisco extends Zombies{
 			GameWorld.nbZombieKilled +=1;
 		}
 
+		if(timerFreeze.hasFinished())
+			setSpeed(speed);
+
 
 	}
+	
 	@Override
 	public void moinsHp(int h) {
 		hp -= h;
 		takeDamage = true;
+		timerFreeze.restart();
 		// TODO Auto-generated method stub
 
 	}
@@ -73,7 +84,6 @@ public class ZombieDisco extends Zombies{
 		double y = getY()*Grid.CASE_SIZE_Y+Grid.CASE_SIZE_Y/2;
 		double x = getX()/(Grid.NB_CASE_X-1);
 		x += 0.04;
-		//System.out.println(position.getX());
 		Position p = new Position(x, y);
 		return p;
 
@@ -87,7 +97,6 @@ public class ZombieDisco extends Zombies{
 					ModifyWayPicture.DamageZombieDisco
 					,taille,taille*Main.mult);
 			takeDamage = false;
-			timeFreeze.restart();
 		}
 
 		if(vitesse != speed) {
@@ -96,8 +105,6 @@ public class ZombieDisco extends Zombies{
 					ModifyWayPicture.ColdZombieDisco
 					,taille,taille*Main.mult);
 
-			if(timeFreeze.hasFinished())
-				speedZombie(0.0125);
 		}
 		else {
 			double Ymax = Grid.MaxHaut.getY();
@@ -105,7 +112,5 @@ public class ZombieDisco extends Zombies{
 					,taille,taille*Main.mult);
 		}
 	}
-
-
 
 }

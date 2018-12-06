@@ -7,7 +7,9 @@ public class BasicZombie extends Zombies {
 	private boolean bouge;
 	private double vitesse;
 	private Timer dps;
-	Timer timeFreeze = new Timer(800);
+	private Timer timeFreeze = new Timer(2000);
+	private int freeze = 0;
+	private Timer timerFreeze;
 	
 	
 	
@@ -15,10 +17,11 @@ public class BasicZombie extends Zombies {
 
 	public BasicZombie (double x, double y) {
 		super(damage,x,y);
-		this.hp = 200;
-		dps = new Timer(1500);
+		this.hp = 1000;
+		dps = new Timer(1250);
 		bouge = true;
 		vitesse = speed;
+		timerFreeze = new Timer(800);
 	}
 	
 
@@ -35,16 +38,18 @@ public class BasicZombie extends Zombies {
 				dps.restart();
 			}
 		
-		} else bouge = true;
+		} 
+		else bouge = true;
 		if (bouge) { 
-			
 			position.setX(position.getX() - vitesse);
 		}
 
 		if (hp <= 0) { 
 			GameWorld.buffDelete.add(this);
-			GameWorld.nbZombieKilled +=1;
+			GameWorld.nbZombieKilled ++;
 		}
+		if(timerFreeze.hasFinished())
+			setSpeed(speed);
 		
 		
 	}
@@ -53,6 +58,7 @@ public class BasicZombie extends Zombies {
 	public void moinsHp(int h) {
 		hp -= h;
 		takeDamage = true;
+		timerFreeze.restart();
 		// TODO Auto-generated method stub
 		
 	}
@@ -81,17 +87,21 @@ public class BasicZombie extends Zombies {
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
 					ModifyWayPicture.DamageZombie
 					,taille,taille*Main.mult);
+				
 			takeDamage = false;
-			timeFreeze.restart();
+			//timeFreeze.restart();
+		
+			
 		}
 		if(vitesse != speed) {
+			
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
 					ModifyWayPicture.ColdZombie
 					,taille,taille*Main.mult);
 			
-			if(timeFreeze.hasFinished())
-				speedZombie(0.0125);
+			
+			
 		}
 		
 		else {

@@ -1,20 +1,23 @@
+
 import Picture.ModifyWayPicture;
 
 public class ArmorZombie extends Zombies {
 	private int hp = 560;
-	Timer timeFreeze = new Timer(800);
 	private static final int damage = 30;
 	private final double taille = 0.09;
 	private boolean bouge = true;
 	private Timer dps;
 	private boolean takeDamage = false;
 	private double vitesse;
+	private int freeze = 0;
+	private Timer timerFreeze;
 
 	public ArmorZombie (double x, double y) {
 		super(damage,x,y);	
 		this.hp = 560;
 		dps = new Timer(1250);
 		vitesse = speed;
+		timerFreeze = new Timer(800);
 
 	}
 	public void step() {
@@ -38,13 +41,15 @@ public class ArmorZombie extends Zombies {
 			GameWorld.buffDelete.add(this);
 			GameWorld.nbZombieKilled +=1;
 		}
+		if(timerFreeze.hasFinished()) 
+			setSpeed(speed);
 	}
 
 	@Override
 	public void moinsHp(int h) {
 		hp -= h;
 		takeDamage = true;
-		// TODO Auto-generated method stub
+		timerFreeze.restart();
 
 	}
 
@@ -70,16 +75,14 @@ public class ArmorZombie extends Zombies {
 					ModifyWayPicture.DamageArmor
 					,taille,taille*Main.mult);
 			takeDamage = false;
-			timeFreeze.restart();
+			
+			
 		}
 		if(vitesse != speed) {
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
 					ModifyWayPicture.ColdArmorZombie
 					,taille,taille*Main.mult);
-
-			if(timeFreeze.hasFinished())
-				speedZombie(0.0125);
 		}
 		else {
 			double Ymax = Grid.MaxHaut.getY();
