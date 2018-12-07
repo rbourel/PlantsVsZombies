@@ -37,7 +37,7 @@ public class Sun extends Entite {
 	public void dessine() {
 		// TODO Auto-generated method stub
 		StdDraw.setPenColor(StdDraw.RED);
-		StdDraw.picture(this.position.getX()+Grid.CASE_SIZE_X/2, this.position.getY(), ModifyWayPicture.SunURL
+		StdDraw.picture(this.position.getX()+Grid.CASE_SIZE_X/2, this.position.getY(), GameWorld.repoImages + "/sun.png"
 				,SUN_SIZE,SUN_SIZE*Main.mult);
 	}
 	@Override

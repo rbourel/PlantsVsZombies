@@ -67,18 +67,18 @@ public class Jalapeno extends Plant {
 	public void dessine() {
 		//StdDraw.setPenColor(StdDraw.GREEN);
 		if(taillePlus < 10) {
-			StdDraw.picture(this.position.getX(), this.position.getY(),ModifyWayPicture.jalapeno
+			StdDraw.picture(this.position.getX(), this.position.getY(),GameWorld.repoImages + "/Jalapeno3.png"
 					,JalapenoSize,JalapenoSize*Main.mult);
 		}
 		else if(taillePlus > 10){
 			JalapenoSize += 0.001;
-		StdDraw.picture(this.position.getX(), this.position.getY(), ModifyWayPicture.jalapeno
+		StdDraw.picture(this.position.getX(), this.position.getY(), GameWorld.repoImages + "/Jalapeno3.png"
 				,JalapenoSize,JalapenoSize*Main.mult);
 		}
 		if(taillePlus >=50) {
 			StdDraw.setPenColor(StdDraw.RED);
 			//StdDraw.filledRectangle((getX()+1)/2, getY(), (1-getX())/2, Grid.CASE_SIZE_Y/2);
-			StdDraw.picture((getX()+1)/2, getY(),ModifyWayPicture.fireJalapeno, (1-getX()), Grid.CASE_SIZE_Y);
+			StdDraw.picture((getX()+1)/2, getY(),GameWorld.repoImages + "/firejala.png", (1-getX()), Grid.CASE_SIZE_Y);
 		}
 				
 	}

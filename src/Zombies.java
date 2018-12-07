@@ -3,13 +3,13 @@ public class Zombies extends Entite {
 	/** Nombre de point de vie du Zombie */
 	private int hp;
 	/** Vitesse du Zombie, global a tout les Zombie ici */
-	protected double speed = 0.0125;
+	protected double speed;
 	/** Nombre de dommage inflige par les Zombie au Plante par coup */
 	private int damage;
 	
 	public Zombies(int damage, double x, double y) {
 		super(x,y);
-		this.speed = 0.0125;
+		this.speed = 0.0075;
 		this.damage = damage;
 	}
 	@Override

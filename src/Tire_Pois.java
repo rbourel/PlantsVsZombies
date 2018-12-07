@@ -33,19 +33,19 @@ public class Tire_Pois extends Plant {
 	public void dessine() {
 		//StdDraw.setPenColor(StdDraw.GREEN);
 		if(takeDamage) {
-			StdDraw.picture(this.position.getX(), this.position.getY(),ModifyWayPicture.NoSunFlowerURL
+			StdDraw.picture(this.position.getX(), this.position.getY(),GameWorld.repoImages + "/Notirepois.png"
 					,TirePois_SIZE,TirePois_SIZE*Main.mult);
 			takeDamage = false;
 		}
 		else
-		StdDraw.picture(this.position.getX(), this.position.getY(), ModifyWayPicture.PeaShooterURL
+		StdDraw.picture(this.position.getX(), this.position.getY(), GameWorld.repoImages + "/tire pois.png"
 				,TirePois_SIZE,TirePois_SIZE*Main.mult);
 	}
 	static boolean getDispo()
 	  {
 	    if (timer.hasFinished())
 	      statut = true;
-	    if ((statut & GameWorld.money >= 50)) {
+	    if ((statut & GameWorld.money >= cost)) {
 	      dispo = true;
 	    } else {
 	      dispo = false;

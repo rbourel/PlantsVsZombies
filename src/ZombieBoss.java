@@ -63,7 +63,8 @@ public class ZombieBoss extends Zombies {
 		// TODO Auto-generated method stub
 		StdDraw.setPenColor(StdDraw.BLACK);
 		double Ymax = Grid.MaxHaut.getY();
-		StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,ModifyWayPicture.zombieA
+		StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2
+				,GameWorld.repoImages + "/ZombieA.png"
 				,taille,taille*Main.mult);
 	}
 	

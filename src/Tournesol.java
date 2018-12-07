@@ -35,12 +35,12 @@ public class Tournesol extends Plant {
 	public void dessine() {
 		//StdDraw.setPenColor(StdDraw.YELLOW);
 		if(takeDamage) {
-			StdDraw.picture(this.position.getX(), this.position.getY(),ModifyWayPicture.NoSunFlowerURL
+			StdDraw.picture(this.position.getX(), this.position.getY(),GameWorld.repoImages + "/DamageTournesol.png"
 					,Tournesol_SIZE,Tournesol_SIZE*Main.mult);
 			takeDamage = false;
 		}
 		else {
-			StdDraw.picture(this.position.getX(), this.position.getY(),ModifyWayPicture.SunFlowerURL
+			StdDraw.picture(this.position.getX(), this.position.getY(),GameWorld.repoImages + "/HD_Sunflower.png"
 					,Tournesol_SIZE,Tournesol_SIZE*Main.mult);
 		}
 	}
@@ -48,7 +48,7 @@ public class Tournesol extends Plant {
 	static boolean getDispo()	{
 		if (timer.hasFinished())
 			statut = true;
-		if ((statut & GameWorld.money >= 50)) {
+		if ((statut & GameWorld.money >= cost)) {
 			dispo = true;
 		} else {
 			dispo = false;

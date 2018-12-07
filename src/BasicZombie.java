@@ -17,11 +17,11 @@ public class BasicZombie extends Zombies {
 
 	public BasicZombie (double x, double y) {
 		super(damage,x,y);
-		this.hp = 1000;
+		this.hp = 200;
 		dps = new Timer(1250);
 		bouge = true;
 		vitesse = speed;
-		timerFreeze = new Timer(800);
+		timerFreeze = new Timer(1100);
 	}
 	
 
@@ -85,19 +85,17 @@ public class BasicZombie extends Zombies {
 		if(takeDamage) {
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
-					ModifyWayPicture.DamageZombie
+					GameWorld.repoImages + "/DamageZombie.png"
 					,taille,taille*Main.mult);
 				
 			takeDamage = false;
-			//timeFreeze.restart();
-		
-			
+			//timeFreeze.restart();			
 		}
 		if(vitesse != speed) {
 			
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
-					ModifyWayPicture.ColdZombie
+					GameWorld.repoImages + "/ColdZombie.png"
 					,taille,taille*Main.mult);
 			
 			
@@ -106,7 +104,8 @@ public class BasicZombie extends Zombies {
 		
 		else {
 		double Ymax = Grid.MaxHaut.getY();
-		StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,ModifyWayPicture.BasicZombieURL
+		StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
+				GameWorld.repoImages + "/Zombie_(PVZ-_DA).png"
 				,taille,taille*Main.mult);  
 		}
 	}

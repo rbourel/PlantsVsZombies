@@ -1,9 +1,9 @@
 import Picture.ModifyWayPicture;
 public class ZombieDisco extends Zombies{
 
-	private int hp = 1000;
+	private int hp = 500;
 
-	private static final int damage = 30;
+	private static final int damage = 40;
 	private final double taille = 0.09;
 	private boolean bouge;
 	/** Vitesse d'attaque du Zombie */
@@ -20,9 +20,9 @@ public class ZombieDisco extends Zombies{
 	public ZombieDisco (double x, double y) {
 		super(damage,x,y);
 		bouge = true;
-		attackSpeed = new Timer(1250);
+		attackSpeed = new Timer(1000);
 		vitesse = speed;
-		timerFreeze = new Timer(800);
+		timerFreeze = new Timer(1100);
 	}
 	public void step() {
 		// TODO Auto-generated method stub
@@ -94,7 +94,7 @@ public class ZombieDisco extends Zombies{
 		if(takeDamage) {
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
-					ModifyWayPicture.DamageZombieDisco
+					GameWorld.repoImages + "/DamageDiscoZombie.png"
 					,taille,taille*Main.mult);
 			takeDamage = false;
 		}
@@ -102,13 +102,14 @@ public class ZombieDisco extends Zombies{
 		if(vitesse != speed) {
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
-					ModifyWayPicture.ColdZombieDisco
+					GameWorld.repoImages + "/ColdDiscoZombie.png"
 					,taille,taille*Main.mult);
 
 		}
 		else {
 			double Ymax = Grid.MaxHaut.getY();
-			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,ModifyWayPicture.ZombieDisco
+			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
+					GameWorld.repoImages + "/DiscoZombie.png"
 					,taille,taille*Main.mult);
 		}
 	}

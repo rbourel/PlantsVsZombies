@@ -37,11 +37,11 @@ public class Noix extends Plant {
 		
 	public void dessine() {
 		if(takeDamage) {
-			StdDraw.picture(this.position.getX(), this.position.getY(),ModifyWayPicture.DamageNoix
+			StdDraw.picture(this.position.getX(), this.position.getY(),GameWorld.repoImages + "/DamageNoix.png"
 					,Noix_SIZE, Noix_SIZE*Main.mult);
 			takeDamage = false;
 		} else {
-			StdDraw.picture(this.position.getX(), this.position.getY(), ModifyWayPicture.noixURL
+			StdDraw.picture(this.position.getX(), this.position.getY(), GameWorld.repoImages + "/noix.png"
 					, Noix_SIZE,Noix_SIZE*Main.mult); 
 		}
 	}

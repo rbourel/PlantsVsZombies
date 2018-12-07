@@ -21,6 +21,8 @@ import Picture.ModifyWayPicture;
  */
 public class GameWorld {
 	
+	static String repoImages = "Picture";
+	
 	/** Money du Jeu pour acheter des Plante permettant de se defendre contre les Zombie */
 	public static Integer money;
 	// l'ensemble des entites, pour gerer (notamment) l'affichage
@@ -183,7 +185,7 @@ public class GameWorld {
 		case 'c':
 			System.out.println("Le joueur veut planter un Cold_Tire-Pois...");
 			// TODO
-			if(Tire_Pois.getDispo()) {
+			if(Cold_TirePois.getDispo()) {
 				double x = StdDraw.mouseX();
 				double y = StdDraw.mouseY();
 
@@ -357,7 +359,7 @@ public class GameWorld {
 		// Ici vous pouvez afficher du décors 		
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.filledRectangle(0.5, 0.5, 1, 1);
-		StdDraw.picture(Grid.MaxHaut.getX()/2, Grid.MaxHaut.getY()/2,ModifyWayPicture.Jardin,Grid.MaxHaut.getX(), Grid.MaxHaut.getY());
+		StdDraw.picture(Grid.MaxHaut.getX()/2, Grid.MaxHaut.getY()/2,repoImages + "/jardin.png",Grid.MaxHaut.getX(), Grid.MaxHaut.getY());
 		
 		//Marqueur de position actuel
 		double moX = StdDraw.mouseX();
@@ -376,52 +378,52 @@ public class GameWorld {
 		double x = 0.05;
 		double y = 0.92;
 
-		StdDraw.picture(x * 1 , y, ModifyWayPicture.SunURL , (1-y)/2, (1-y)/2 * Main.mult);
+		StdDraw.picture(x * 1 , y, GameWorld.repoImages + "/sun.png" , (1-y)/2, (1-y)/2 * Main.mult);
 		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.text(x*1, y - 0.07, Integer.toString(money));  
 
 
 		if (Tournesol.getDispo()) {
-			StdDraw.picture(x * 3 , y, ModifyWayPicture.SunFlowerURL , (1-y)/2, (1-y)/2 * Main.mult);
+			StdDraw.picture(x * 3 , y, GameWorld.repoImages + "/HD_Sunflower.png" , (1-y)/2, (1-y)/2 * Main.mult);
 		} else 
-			StdDraw.picture(x * 3, y, ModifyWayPicture.NoSunFlowerURL, (1-y)/2, (1-y)/2 * Main.mult );
+			StdDraw.picture(x * 3, y, GameWorld.repoImages + "/NoTournesol.png", (1-y)/2, (1-y)/2 * Main.mult );
 		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.text(x*3, y - 0.07, Integer.toString(Tournesol.getPrize())); 
 		StdDraw.text(x*3, y - 0.1, "touche : T");
 
 		if (Tire_Pois.getDispo()) {
-			StdDraw.picture(x * 5 , y, ModifyWayPicture.PeaShooterURL , (1-y)/2, (1-y)/2 * Main.mult);
+			StdDraw.picture(x * 5 , y, GameWorld.repoImages + "/tire pois.png" , (1-y)/2, (1-y)/2 * Main.mult);
 		} else 
-			StdDraw.picture(x * 5, y, ModifyWayPicture.NoPeaShooterURL, (1-y)/2, (1-y)/2 * Main.mult );
+			StdDraw.picture(x * 5, y, GameWorld.repoImages + "/Notirepois.png", (1-y)/2, (1-y)/2 * Main.mult );
 		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.text(x*5, y - 0.07, Integer.toString(Tire_Pois.getPrize())); 
 		StdDraw.text(x*5, y - 0.1, "touche : P");
 
 		if (Noix.getDispo()) {
-			StdDraw.picture(x * 7 , y, ModifyWayPicture.noixURL , (1-y)/1.5, (1-y)/1.5 * Main.mult);
+			StdDraw.picture(x * 7 , y, GameWorld.repoImages + "/noix.png" , (1-y)/1.5, (1-y)/1.5 * Main.mult);
 		} else 
-			StdDraw.picture(x * 7, y, ModifyWayPicture.NoNoixURL, (1-y)/1.5, (1-y)/1.5 * Main.mult );
+			StdDraw.picture(x * 7, y, GameWorld.repoImages + "/noixGrise.png", (1-y)/1.5, (1-y)/1.5 * Main.mult );
 		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.text(x*7, y - 0.07, Integer.toString(Noix.getPrize())); 
 		StdDraw.text(x*7, y - 0.1, "touche : N");
 
 		if (Jalapeno.getDispo()) {
-			StdDraw.picture(x * 9 , y, ModifyWayPicture.jalapeno , (1-y)/1.5, (1-y)/1.5 * Main.mult);
+			StdDraw.picture(x * 9 , y,GameWorld.repoImages + "/Jalapeno3.png" , (1-y)/1.5, (1-y)/1.5 * Main.mult);
 		} else 
-			StdDraw.picture(x * 9, y, ModifyWayPicture.Nojalapeno, (1-y)/1.5, (1-y)/1.5 * Main.mult );
+			StdDraw.picture(x * 9, y, GameWorld.repoImages + "/NoJalapeno.png", (1-y)/1.5, (1-y)/1.5 * Main.mult );
 		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.text(x*9, y - 0.07, Integer.toString(Jalapeno.getPrize())); 
 		StdDraw.text(x*9, y - 0.1, "touche : J");
 		
 		if (Cold_TirePois.getDispo()) {
-			StdDraw.picture(x * 11 , y, ModifyWayPicture.ColdTirePois , (1-y)/1.5, (1-y)/1.5 * Main.mult);
+			StdDraw.picture(x * 11 , y, GameWorld.repoImages + "/ColdTirePois.png" , (1-y)/1.5, (1-y)/1.5 * Main.mult);
 		} else 
-			StdDraw.picture(x * 11, y, ModifyWayPicture.NoColdTirePois, (1-y)/1.5, (1-y)/1.5 * Main.mult );
+			StdDraw.picture(x * 11, y, GameWorld.repoImages + "/NoColdTirePois.png", (1-y)/1.5, (1-y)/1.5 * Main.mult );
 		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.text(x*11, y - 0.07, Integer.toString(Cold_TirePois.getPrize())); 
 		StdDraw.text(x*11, y - 0.1, "touche : C");
 
-		StdDraw.picture(x * 13 , y, ModifyWayPicture.pelle , (1-y)/2, (1-y)/2 * Main.mult);
+		StdDraw.picture(x * 13 , y, GameWorld.repoImages + "/pelle.png" , (1-y)/2, (1-y)/2 * Main.mult);
 		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.text(x*13, y - 0.05, "'s' to delete");
 		StdDraw.text(x*13, y - 0.07, "one of your plant");

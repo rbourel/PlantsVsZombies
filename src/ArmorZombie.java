@@ -9,15 +9,14 @@ public class ArmorZombie extends Zombies {
 	private Timer dps;
 	private boolean takeDamage = false;
 	private double vitesse;
-	private int freeze = 0;
 	private Timer timerFreeze;
 
 	public ArmorZombie (double x, double y) {
 		super(damage,x,y);	
 		this.hp = 560;
-		dps = new Timer(1250);
+		dps = new Timer(1200);
 		vitesse = speed;
-		timerFreeze = new Timer(800);
+		timerFreeze = new Timer(1100);
 
 	}
 	public void step() {
@@ -28,6 +27,7 @@ public class ArmorZombie extends Zombies {
 
 		if (colPlant()) {
 			bouge = false;
+			
 			if (dps.hasFinished()) {
 				damagePlant(damage);
 				dps.restart();
@@ -72,7 +72,7 @@ public class ArmorZombie extends Zombies {
 		if(takeDamage) {
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
-					ModifyWayPicture.DamageArmor
+					GameWorld.repoImages + "/DamageArmor.png"
 					,taille,taille*Main.mult);
 			takeDamage = false;
 			
@@ -81,12 +81,13 @@ public class ArmorZombie extends Zombies {
 		if(vitesse != speed) {
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
-					ModifyWayPicture.ColdArmorZombie
+					GameWorld.repoImages + "/ColdArmorZombie.png"
 					,taille,taille*Main.mult);
 		}
 		else {
 			double Ymax = Grid.MaxHaut.getY();
-			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,ModifyWayPicture.ArmorZombieURL
+			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
+					GameWorld.repoImages + "/armor zombie.png"
 					,taille,taille*Main.mult);
 		}
 	}

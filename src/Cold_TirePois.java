@@ -7,7 +7,7 @@
 import Picture.ModifyWayPicture;
 
 public class Cold_TirePois extends Plant {
-	private static final int cost = 175; //100
+	private static final int cost = 175; //Choisis comme dans le jeu
 	private int hp = 300; //300
 	private static final int cooldown = 5;
 	private static final double TirePois_SIZE = 0.08;
@@ -19,7 +19,7 @@ public class Cold_TirePois extends Plant {
 
 	public Cold_TirePois(double x, double y) {
 		super(cost, cooldown, x, y);
-		timepois = new Timer(2000);
+		timepois = new Timer(1750);
 		timer.restart();
 		statut = false;
 	}
@@ -39,19 +39,19 @@ public class Cold_TirePois extends Plant {
 	public void dessine() {
 		//StdDraw.setPenColor(StdDraw.GREEN);
 		if(takeDamage) {
-			StdDraw.picture(this.position.getX(), this.position.getY(),ModifyWayPicture.NoColdTirePois
+			StdDraw.picture(this.position.getX(), this.position.getY(),GameWorld.repoImages + "/NoColdTirePois.png"
 					,TirePois_SIZE,TirePois_SIZE*Main.mult);
 			takeDamage = false;
 		}
 		else
-			StdDraw.picture(this.position.getX(), this.position.getY(), ModifyWayPicture.ColdTirePois
+			StdDraw.picture(this.position.getX(), this.position.getY(), GameWorld.repoImages + "/coldTirePois.png"
 					,TirePois_SIZE,TirePois_SIZE*Main.mult);
 	}
 	static boolean getDispo()
 	{
 		if (timer.hasFinished())
 			statut = true;
-		if ((statut & GameWorld.money >= 50)) {
+		if ((statut & GameWorld.money >= cost)) {
 			dispo = true;
 		} else {
 			dispo = false;
