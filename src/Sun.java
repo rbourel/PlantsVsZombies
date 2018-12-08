@@ -1,4 +1,3 @@
-import Picture.ModifyWayPicture;
 
 public class Sun extends Entite {
 	private static final double SUN_SIZE = 0.08;
@@ -21,7 +20,7 @@ public class Sun extends Entite {
 		}
 		else if ((GameWorld.isMouseClick()) && (GameWorld.getMouseX() == posX) && (GameWorld.getMouseY() ==posY)) {
 			statut = true;
-			GameWorld.setMouseClick(false);
+
 		}
 
 		if (statut) {
@@ -48,12 +47,12 @@ public class Sun extends Entite {
 	@Override
 	public void moinsHp(int hp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 

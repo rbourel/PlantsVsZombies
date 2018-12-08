@@ -1,4 +1,4 @@
-import Picture.ModifyWayPicture;
+
 public class ZombieDisco extends Zombies{
 
 	private int hp = 500;
@@ -26,7 +26,6 @@ public class ZombieDisco extends Zombies{
 	}
 	public void step() {
 		// TODO Auto-generated method stub
-
 
 		if(spawnZ < 60) {
 			spawnZ++;
@@ -64,7 +63,7 @@ public class ZombieDisco extends Zombies{
 
 
 	}
-	
+
 	@Override
 	public void moinsHp(int h) {
 		hp -= h;
@@ -99,7 +98,7 @@ public class ZombieDisco extends Zombies{
 			takeDamage = false;
 		}
 
-		if(vitesse != speed) {
+		else if(vitesse != speed) {
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
 					GameWorld.repoImages + "/ColdDiscoZombie.png"

@@ -1,4 +1,3 @@
-import Picture.ModifyWayPicture;
 
 public class Noix extends Plant {
 	private static final int cost = 50;
@@ -9,32 +8,32 @@ public class Noix extends Plant {
 	private static boolean statut;
 	private static boolean dispo;
 	private boolean takeDamage = false;
-	
+
 	public Noix(double x, double y) {
 		super(cost, cooldown, x, y);
 		GameWorld.money -= cost;
 		statut = false;
 		//timer.restart();
 	}
-	
+
 	static boolean getDispo()  {
-	    if (timer.hasFinished())
-	      statut = true;
-	    if ((statut & GameWorld.money >= 50)) {
-	      dispo = true;
-	    } else {
-	      dispo = false;
-	    }
-	    return dispo;
-	  }
-	
+		if (timer.hasFinished())
+			statut = true;
+		if ((statut & GameWorld.money >= 50)) {
+			dispo = true;
+		} else {
+			dispo = false;
+		}
+		return dispo;
+	}
+
 	@Override
 	public void step() {
 		if(hp <= 0) supprPlantGrid();
 	}
-	
-		
-		
+
+
+
 	public void dessine() {
 		if(takeDamage) {
 			StdDraw.picture(this.position.getX(), this.position.getY(),GameWorld.repoImages + "/DamageNoix.png"
@@ -56,19 +55,19 @@ public class Noix extends Plant {
 		hp -= h;
 		takeDamage = true;
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public Position hitbox() {
-	    Position p = new Position(getX() + 0.05, getY());
-	  //  System.out.println("Noix " + p.getX());
-	    return p;
-	  }
+		Position p = new Position(getX() + 0.05, getY());
+		//  System.out.println("Noix " + p.getX());
+		return p;
+	}
 
 	@Override
 	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

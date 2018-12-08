@@ -42,12 +42,12 @@ public abstract class Entite {
 	 * 
 	 */
 	public abstract void moinsHp(int hp);
-	
+
 	/*
 	 * Change la vitesse des Entite, particulierement utilse pour les Zombie qui peuvent changer de vitesse si ils sont touchez par un Pois Gele (class ColdPea)
 	 */
 	public abstract void setSpeed(double speed);
-	
+
 	/**
 	 * 
 	 * @param p une position
@@ -75,7 +75,7 @@ public abstract class Entite {
 		}
 		return false;
 	}	
-	
+
 	/**
 	 * @param x fait des dommage egale a x a la Plante 
 	 */
@@ -106,10 +106,10 @@ public abstract class Entite {
 		for (Entite entite : GameWorld.entites) {
 			if (((entite instanceof Zombies)) && (entite.hitbox().equals(hitbox())))
 				entite.moinsHp(x);			
-			
+
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @return true si le Zombie est sur la ligne et a droite du Jalapeno
@@ -122,8 +122,8 @@ public abstract class Entite {
 		}
 		return false;
 	}
-	
-	
+
+
 	/**
 	 * 
 	 * @param x fait des dommage egale a x a tout les zombie present sur la ligne et seulement a droite du Jalapeno
@@ -134,8 +134,8 @@ public abstract class Entite {
 				entite.moinsHp(x);
 		}
 	}
-	
-	
+
+
 	/**
 	 * La fonction va changer la vitesse du Zombie, principalement utilise ici lors d'une collision entre un Zombie et un Pois Gele
 	 * @param x la nouvelle vitesse du Zombie
@@ -145,24 +145,17 @@ public abstract class Entite {
 		for (Entite entite : GameWorld.entites) {
 			if (((entite instanceof Zombies)) && (entite.hitbox().equals(hitbox())))
 				entite.setSpeed(x);
-			
-		}
-	}
-	
-	public boolean colWColdPea()	  {
-		for (Entite entite : GameWorld.entites) {
-			if (((entite instanceof ColdPea)) && (entite.hitbox().ligneJalapeno(hitbox()))) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	
 
-	
-	
-	
+		}
+	}
+
+
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,4 @@
 
-import Picture.ModifyWayPicture;
-
 public class ArmorZombie extends Zombies {
 	private int hp = 560;
 	private static final int damage = 30;
@@ -27,7 +25,7 @@ public class ArmorZombie extends Zombies {
 
 		if (colPlant()) {
 			bouge = false;
-			
+
 			if (dps.hasFinished()) {
 				damagePlant(damage);
 				dps.restart();
@@ -75,10 +73,10 @@ public class ArmorZombie extends Zombies {
 					GameWorld.repoImages + "/DamageArmor.png"
 					,taille,taille*Main.mult);
 			takeDamage = false;
-			
-			
+
+
 		}
-		if(vitesse != speed) {
+		else if(vitesse != speed) {
 			double Ymax = Grid.MaxHaut.getY();
 			StdDraw.picture(this.position.getX()/(Grid.NB_CASE_X-1), this.position.getY()*(Ymax/Grid.NB_CASE_Y)+Grid.CASE_SIZE_Y/2,
 					GameWorld.repoImages + "/ColdArmorZombie.png"

@@ -1,10 +1,3 @@
-// A FAIRE LE 5 DECEMBRE AVEC 20 100
-
-
-// Gerez les degats qui enleve de la vitesse un certains temps  = +2points d'apres le bareme;
-
-
-import Picture.ModifyWayPicture;
 
 public class Cold_TirePois extends Plant {
 	private static final int cost = 175; //Choisis comme dans le jeu
@@ -73,7 +66,7 @@ public class Cold_TirePois extends Plant {
 	@Override
 	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

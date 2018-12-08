@@ -6,7 +6,7 @@ public class Zombies extends Entite {
 	protected double speed;
 	/** Nombre de dommage inflige par les Zombie au Plante par coup */
 	private int damage;
-	
+
 	public Zombies(int damage, double x, double y) {
 		super(x,y);
 		this.speed = 0.0075;
@@ -44,16 +44,16 @@ public class Zombies extends Entite {
 	@Override
 	public void moinsHp(int hp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
-		
-	}
-	
 
-	
-	
+	}
+
+
+
+
 
 }

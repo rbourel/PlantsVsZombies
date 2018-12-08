@@ -1,28 +1,29 @@
-import java.sql.Time;
+//import java.sql.Time;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+//import java.util.HashMap;
+//import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
-import java.util.Set;
+//import java.util.Scanner;
+//import java.util.Set;
 
-import Picture.ModifyWayPicture;
 
 /**
  * 
  * @author Rodrigue
  * @author Vincent
- * --------------------------------------------
+ */
+/**
+ * ------------------------------------------------------------------------------------------------------------------------------------------------
  */
 /**
  *	La Class GameWorld s'occupe du Monde que l'on va creer, c'est donc ici que va etre creez toute les variables importantes du jeu
  */
 public class GameWorld {
-	
+
 	static String repoImages = "Picture";
-	
+
 	/** Money du Jeu pour acheter des Plante permettant de se defendre contre les Zombie */
 	public static Integer money;
 	// l'ensemble des entites, pour gerer (notamment) l'affichage
@@ -53,6 +54,10 @@ public class GameWorld {
 	public static final int MAX_ZOMBIE = 50;
 	public static int Timerdifficulty;
 
+	public static int nbJalapenoPos;
+
+
+
 
 	//Pour savoir si la partie est gagnee ou pas
 	public static boolean gameWon;
@@ -67,7 +72,8 @@ public class GameWorld {
 		mouseClick = false;
 		nbZombieKilled = 0;
 		nbZombieSpawn = 0;
-		
+		nbJalapenoPos = 0;
+
 
 		// on cree les collections
 		entites = new LinkedList<Entite>();
@@ -82,7 +88,7 @@ public class GameWorld {
 
 		timerSun = new Timer(6500);
 		timerZombie = new Timer(Timerdifficulty);
-		debut = new Timer(5000); //20sec sans Zombie au debut
+		debut = new Timer(20000); //20sec sans Zombie au debut
 		rand = new Random();
 
 	}
@@ -175,13 +181,14 @@ public class GameWorld {
 					Position pose = Grid.emplacement(x, y);
 					Entite t = new Jalapeno(pose.getX(),pose.getY());
 					buffCreate.add(t);
+					nbJalapenoPos++;
 					money -= Jalapeno.getPrize();
 					plantGrid[(int)p.getX()][(int)p.getY()] = t;
 
 				}
 			}
 			break;
-			
+
 		case 'c':
 			System.out.println("Le joueur veut planter un Cold_Tire-Pois...");
 			// TODO
@@ -233,9 +240,7 @@ public class GameWorld {
 	public static boolean isMouseClick() {
 		return mouseClick;
 	}
-	public static void setMouseClick(boolean mouseClic) {
-		mouseClick = mouseClick;
-	}
+
 	public static int getMouseX() {
 		return mouseX;
 	}
@@ -254,7 +259,7 @@ public class GameWorld {
 			timerSun.restart();
 		}
 	}
-	
+
 	public void setDifficulty() {
 		if(nbZombieKilled < 10) {
 			nbPossibZomb = 15;
@@ -276,9 +281,9 @@ public class GameWorld {
 			nbPossibZomb = 1;
 			Timerdifficulty = 2000;
 		}
-		
+
 	}
-	
+
 	//A FAIRE
 	//Reduire le temps de Timer tout les 10Zombie Tues
 	//Reduire les randInt type avec le temps pour avoir des Zombie plus puissant
@@ -295,11 +300,11 @@ public class GameWorld {
 					buffCreate.add(new ArmorZombie(8,y));		
 				else if(type == 1 ) {
 					buffCreate.add(new ZombieDisco(8,y));
-					
+
 				}
 				else 
 					buffCreate.add(new BasicZombie(8,y));
-						
+
 				System.out.println("New Zombie en ligne : " + y);
 				timerZombie = new Timer(Timerdifficulty);
 				nbZombieSpawn ++;
@@ -360,7 +365,7 @@ public class GameWorld {
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.filledRectangle(0.5, 0.5, 1, 1);
 		StdDraw.picture(Grid.MaxHaut.getX()/2, Grid.MaxHaut.getY()/2,repoImages + "/jardin.png",Grid.MaxHaut.getX(), Grid.MaxHaut.getY());
-		
+
 		//Marqueur de position actuel
 		double moX = StdDraw.mouseX();
 		double moY = StdDraw.mouseY();
@@ -407,6 +412,8 @@ public class GameWorld {
 		StdDraw.text(x*7, y - 0.07, Integer.toString(Noix.getPrize())); 
 		StdDraw.text(x*7, y - 0.1, "touche : N");
 
+
+		Integer nbRestantJalapeno = 10 - nbJalapenoPos;
 		if (Jalapeno.getDispo()) {
 			StdDraw.picture(x * 9 , y,GameWorld.repoImages + "/Jalapeno3.png" , (1-y)/1.5, (1-y)/1.5 * Main.mult);
 		} else 
@@ -414,7 +421,7 @@ public class GameWorld {
 		StdDraw.setPenColor(StdDraw.WHITE);
 		StdDraw.text(x*9, y - 0.07, Integer.toString(Jalapeno.getPrize())); 
 		StdDraw.text(x*9, y - 0.1, "touche : J");
-		
+
 		if (Cold_TirePois.getDispo()) {
 			StdDraw.picture(x * 11 , y, GameWorld.repoImages + "/ColdTirePois.png" , (1-y)/1.5, (1-y)/1.5 * Main.mult);
 		} else 
@@ -429,6 +436,7 @@ public class GameWorld {
 		StdDraw.text(x*13, y - 0.07, "one of your plant");
 
 		StdDraw.text(0.93, 0.95, "Zombies tues : " + Integer.toString(nbZombieKilled));
+		StdDraw.text(0.88, 0.92, "Nombre de Jalapeno restant : " + nbRestantJalapeno.toString());
 	}
 
 

@@ -1,43 +1,41 @@
-import java.sql.Time;
 
-import Picture.ModifyWayPicture;
 
 public class ColdPea extends Entite {
 
 	private static final double TRUC_MOVE_X = 0.005; // 0.5case/s = Grid.caseSizeX / (1000/20)
 	private static final double TRUC_SIZE = 0.02;
 	private final int damage = 50; //20
-	
-//	private boolean coldTouch = false;
-//	private Timer timeFreeze;
+
+	//	private boolean coldTouch = false;
+	//	private Timer timeFreeze;
 	public ColdPea(double x, double y) {
 		super(x, y);	
 	}
 	public Position hitbox() {
-	    Position p = new Position(getX() + 0.1, getY());
-	    return p;
-	  }
+		Position p = new Position(getX() + 0.1, getY());
+		return p;
+	}
 
 	@Override
 	public void step() {
 		this.position.setX(this.position.getX() + TRUC_MOVE_X);
 		if(this.position.getX() > 1)
 			GameWorld.buffDelete.add(this);
-		
+
 		if(colZombies() != null) {
 			speedZombie(0.005);
 		}
-		
+
 		if (colZombies() != null) {
-		      GameWorld.buffDelete.add(this);
-		      damageZombie(damage);
-		      
-		   	
-		      
-//		      timeFreeze = new Timer(2000);
-//				coldTouch = true;
-		      
-		    }
+			GameWorld.buffDelete.add(this);
+			damageZombie(damage);
+
+
+
+			//		      timeFreeze = new Timer(2000);
+			//				coldTouch = true;
+
+		}
 
 	}
 
@@ -52,13 +50,13 @@ public class ColdPea extends Entite {
 	@Override
 	public void moinsHp(int h) {
 		// TODO Auto-generated method stub
-		
-		
+
+
 	}
 	@Override
 	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

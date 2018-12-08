@@ -2,14 +2,14 @@
 public abstract class Plant extends Entite {
 	private int cost;
 	private int cooldown;
-	
-	
+
+
 	public Plant(int cost , int cooldown, double x, double y) {
 		super(x,y);
 		this.cost = cost;
 		this.cooldown = cooldown;
 	}
-	
+
 	@Override
 	public void step() {
 		// TODO Auto-generated method stub
@@ -41,7 +41,7 @@ public abstract class Plant extends Entite {
 
 	public void moinsHp(int hp) {
 		// TODO Auto-generated method stub
-		
+
 	}
 	/**
 	 * La fonction permet de supprimer la Plante presente du monde mais aussi de la case ou elle est
@@ -54,7 +54,7 @@ public abstract class Plant extends Entite {
 		GameWorld.buffDelete.add(t);
 		System.out.println(GameWorld.buffDelete.toString());
 		GameWorld.plantGrid[(int)p.getX()][(int)p.getY()] = null; 
-}
+	}
 
 
 }

@@ -1,4 +1,3 @@
-import Picture.ModifyWayPicture;
 
 public class Tire_Pois extends Plant {
 	private static final int cost = 100; //100
@@ -24,12 +23,12 @@ public class Tire_Pois extends Plant {
 		}
 		if(hp <= 0) supprPlantGrid();
 	}
-	
+
 	public Position hitbox() {
-	    Position p = new Position(getX() + 0.05, getY());
-	    return p;
-	  }
-	
+		Position p = new Position(getX() + 0.05, getY());
+		return p;
+	}
+
 	public void dessine() {
 		//StdDraw.setPenColor(StdDraw.GREEN);
 		if(takeDamage) {
@@ -38,20 +37,20 @@ public class Tire_Pois extends Plant {
 			takeDamage = false;
 		}
 		else
-		StdDraw.picture(this.position.getX(), this.position.getY(), GameWorld.repoImages + "/tire pois.png"
-				,TirePois_SIZE,TirePois_SIZE*Main.mult);
+			StdDraw.picture(this.position.getX(), this.position.getY(), GameWorld.repoImages + "/tire pois.png"
+					,TirePois_SIZE,TirePois_SIZE*Main.mult);
 	}
 	static boolean getDispo()
-	  {
-	    if (timer.hasFinished())
-	      statut = true;
-	    if ((statut & GameWorld.money >= cost)) {
-	      dispo = true;
-	    } else {
-	      dispo = false;
-	    }
-	    return dispo;
-	  }
+	{
+		if (timer.hasFinished())
+			statut = true;
+		if ((statut & GameWorld.money >= cost)) {
+			dispo = true;
+		} else {
+			dispo = false;
+		}
+		return dispo;
+	}
 
 	public static int getPrize() {
 		// TODO Auto-generated method stub
@@ -62,12 +61,12 @@ public class Tire_Pois extends Plant {
 		hp -= h;
 		takeDamage = true;
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 }

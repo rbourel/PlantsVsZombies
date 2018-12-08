@@ -11,7 +11,7 @@ public class TestTimer {
 			e.printStackTrace();
 		}
 		System.out.println(t.hasFinished()); // verifier que le timer a bien fini
-		
+
 	}
 
 }

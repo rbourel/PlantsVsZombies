@@ -1,4 +1,3 @@
-import Picture.ModifyWayPicture;
 
 public class Tournesol extends Plant {
 	private static final int cost = 50; //50
@@ -6,7 +5,7 @@ public class Tournesol extends Plant {
 	private static final int cooldown = 5; 
 	private Timer timeSun;
 	private static final double Tournesol_SIZE = 0.09;
-	private static Timer timer = new Timer(cooldown * 1000); //5s
+	private static Timer timerDispo = new Timer(cooldown * 1000); //5s
 	private static boolean statut;
 	private static boolean dispo;
 	private boolean takeDamage = false;
@@ -15,7 +14,7 @@ public class Tournesol extends Plant {
 		super(cost, cooldown, x, y);
 		timeSun = new Timer(24000); //24s demande
 		statut = false;
-		timer.restart();
+		timerDispo.restart();
 	}
 	//	public void spawn() {
 	//			GameWorld.buffCreate.add(new Sun(this.position.getX(), this.position.getY()-0.02));
@@ -46,7 +45,7 @@ public class Tournesol extends Plant {
 	}
 
 	static boolean getDispo()	{
-		if (timer.hasFinished())
+		if (timerDispo.hasFinished())
 			statut = true;
 		if ((statut & GameWorld.money >= cost)) {
 			dispo = true;
@@ -75,8 +74,8 @@ public class Tournesol extends Plant {
 	@Override
 	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
+
+
 }

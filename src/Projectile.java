@@ -1,4 +1,3 @@
-import Picture.ModifyWayPicture;
 
 public class Projectile extends Entite {
 
@@ -9,9 +8,9 @@ public class Projectile extends Entite {
 		super(x, y);	
 	}
 	public Position hitbox() {
-	    Position p = new Position(getX() + 0.07, getY());
-	    return p;
-	  }
+		Position p = new Position(getX() + 0.07, getY());
+		return p;
+	}
 
 	@Override
 	public void step() {
@@ -20,9 +19,9 @@ public class Projectile extends Entite {
 			GameWorld.buffDelete.add(this);
 
 		if (colZombies() != null) {
-		      GameWorld.buffDelete.add(this);
-		      damageZombie(damage);
-		    }
+			GameWorld.buffDelete.add(this);
+			damageZombie(damage);
+		}
 
 
 	}
@@ -38,13 +37,13 @@ public class Projectile extends Entite {
 	@Override
 	public void moinsHp(int h) {
 		// TODO Auto-generated method stub
-		
-		
+
+
 	}
 	@Override
 	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
