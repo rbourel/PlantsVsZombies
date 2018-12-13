@@ -65,6 +65,7 @@ public abstract class Entite {
 
 
 	/**
+	 * Cette fonction est utilisé dans la Collision entre une Plante et un Zombie
 	 * @return true ssi il y a collision entre une Plante et un Zombie
 	 */
 	public boolean colPlant()  {
@@ -77,6 +78,8 @@ public abstract class Entite {
 	}	
 
 	/**
+	 * Cette fonction permet de reduire le nombre d'hp de la Plante lorsqu'elle est touche
+	 *
 	 * @param x fait des dommage egale a x a la Plante 
 	 */
 	public void damagePlant(int x) {
@@ -99,7 +102,7 @@ public abstract class Entite {
 		return null;
 	}
 	/**
-	 * 
+	 * Cett fonction permet de reduire le nombre d'hp du Zombie lorsqu'il est touche
 	 * @param x le nombre de degat que prend le Zombie quand il recoie un Projectile sur lui
 	 */
 	public void damageZombie(int x) { 
@@ -111,7 +114,7 @@ public abstract class Entite {
 	}
 
 	/**
-	 * 
+	 * Cette fonction permet de savoir qu'elle Zombie sont sur la ligne et a droite du Jalapeno
 	 * @return true si le Zombie est sur la ligne et a droite du Jalapeno
 	 */
 	public boolean JalapenoLigne()	  {
@@ -125,7 +128,7 @@ public abstract class Entite {
 
 
 	/**
-	 * 
+	 * Cette fonction permet de tuez tout les Zombie sur la ligne et a droite du Jalapeno
 	 * @param x fait des dommage egale a x a tout les zombie present sur la ligne et seulement a droite du Jalapeno
 	 */
 	public void damageJalapeno(int x) { 

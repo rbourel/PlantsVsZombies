@@ -21,7 +21,7 @@ import java.util.Random;
  *	La Class GameWorld s'occupe du Monde que l'on va creer, c'est donc ici que va etre creez toute les variables importantes du jeu
  */
 public class GameWorld {
-
+	
 	static String repoImages = "Picture";
 
 	/** Money du Jeu pour acheter des Plante permettant de se defendre contre les Zombie */
@@ -32,7 +32,7 @@ public class GameWorld {
 	static List<Entite> buffCreate;
 	/** Buffer de suppression d'entite */
 	static List<Entite> buffDelete;
-
+	/** Nombre aleatoire pour permettre certains fonctionalites */
 	Random rand;
 	/** Timer d'apparition de Zombie */
 	Timer timerZombie;
@@ -45,9 +45,11 @@ public class GameWorld {
 
 	/** Tableau d'entite pour gerez la presence de Plante sur les case du Jardin */
 	public static Entite[][] plantGrid = new Plant[9][5];
-
+	/** True si on a cliquer sur la souris */
 	private static boolean mouseClick;
+	/** position x */
 	private static int mouseX;
+	/** position y */
 	private static int mouseY;
 	public static int nbZombieKilled;
 	public static int nbZombieSpawn;
@@ -326,7 +328,6 @@ public class GameWorld {
 		mouseClick = true;
 		System.out.println("La souris a ete cliquee en : " + x + " - " + y + "    " +  mouseX + " - " + mouseY);
 
-		System.out.println(mouseClick);
 
 	}
 

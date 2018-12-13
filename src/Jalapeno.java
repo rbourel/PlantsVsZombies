@@ -32,7 +32,7 @@ public class Jalapeno extends Plant {
 		taillePlus++;
 		if(taillePlus > 50) {
 			if (JalapenoLigne()) {
-				damageJalapeno(1000);
+				damageJalapeno(10000);
 			}
 			hp = 0;
 		}
