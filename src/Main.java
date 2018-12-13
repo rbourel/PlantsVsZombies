@@ -103,7 +103,11 @@ public class Main {
 
 			}
 
-			if (GameWorld.gameWon()) System.out.println("Game won !");
+			if (GameWorld.gameWon()) {
+				System.out.println("GAME WON !");
+				System.out.println("GAME WON !");
+				System.out.println("GAME WON !");
+			}
 			if (GameWorld.gameLost()) System.out.println("Game lost...");
 
 		}

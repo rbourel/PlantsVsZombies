@@ -1,8 +1,9 @@
 
 public class InformationsEntite {
-	public InformationsEntite() {
 
-	}
+	/** 
+	 * Affiche les Insformations sur les Zombies si demande par l'utilisateur
+	 */
 	public static void afficheInfoZ() {
 		StdDraw.clear();
 		StdDraw.setPenColor(StdDraw.BLACK);
@@ -34,7 +35,10 @@ public class InformationsEntite {
 		StdDraw.text(0.5, 0.1, "APPUYEZ SUR ENTREE POUR LANCEZ LE JEU");
 		StdDraw.show();
 	}
-
+	
+	/** 
+	 * Affiche les Insformations sur les Plante si demande par l'utilisateur
+	 */
 	public static void afficheInfoP() {
 		StdDraw.clear();
 		StdDraw.setPenColor(StdDraw.BLACK);
@@ -70,7 +74,9 @@ public class InformationsEntite {
 		StdDraw.text(0.5, 0.1, "APPUYEZ SUR ENTREE POUR LANCEZ LE JEU");
 		StdDraw.show();
 	}
-
+	/**
+	 * Menu principal du Jeu expliquant les regles et fonctionalites 
+	 */
 	public static  void menu() {
 		StdDraw.clear();
 		StdDraw.setPenColor(StdDraw.BLACK);
@@ -88,6 +94,7 @@ public class InformationsEntite {
 		StdDraw.text(0.5, 0.45, "La Noix possedent beaucoup de vie (1500) et permet de bloquez les Zombies");
 		StdDraw.text(0.5, 0.4, "Le Jalapeno tue tout  les Zombies a sa droite, il explose rapidement apres avoir ete placez");
 		StdDraw.text(0.5, 0.35, "La pelle permet de supprimez une plante genante : touche 'S' ");
+		StdDraw.text(0.5, 0.3, "Vous pouvez placez une Plante sur une case ou il y a un Zombie et possiblement le bloquer si il n'est pas trop loin ");
 
 		StdDraw.text(0.5, 0.2, "POUR PLUS D'INFORMATION SUR LES PLANTES CLIQUEZ SUR P");
 		StdDraw.text(0.5, 0.15, "POUR PLUS D'INFORMATION SUR LES ZOMBIES CLIQUEZ SUR Z");

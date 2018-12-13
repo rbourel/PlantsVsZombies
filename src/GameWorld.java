@@ -26,7 +26,7 @@ public class GameWorld {
 
 	/** Money du Jeu pour acheter des Plante permettant de se defendre contre les Zombie */
 	public static Integer money;
-	// l'ensemble des entites, pour gerer (notamment) l'affichage
+	/** l'ensemble des entites, pour gerer (notamment) l'affichage */
 	static List<Entite> entites;
 	/** Buffer de creation d'entite */
 	static List<Entite> buffCreate;
@@ -51,11 +51,15 @@ public class GameWorld {
 	private static int mouseX;
 	/** position y */
 	private static int mouseY;
+	/** nombre commun au jeu representant le nombre de Zombie tues */
 	public static int nbZombieKilled;
+	/**  nombre commun au jeu representant le nombre de Zombie apparu */
 	public static int nbZombieSpawn;
+	/** Nombre de Zombie maximum */
 	public static final int MAX_ZOMBIE = 50;
+	/** Timer de difficulte, plus on avance dans le jeu, plus le timer est petit */
 	public static int Timerdifficulty;
-
+	/** Nombre de Jalapeno que nous avons pose */
 	public static int nbJalapenoPos;
 
 
@@ -77,7 +81,6 @@ public class GameWorld {
 		nbJalapenoPos = 0;
 
 
-		// on cree les collections
 		entites = new LinkedList<Entite>();
 		buffCreate = new ArrayList<Entite>();
 		buffDelete = new ArrayList<Entite>();
@@ -86,7 +89,7 @@ public class GameWorld {
 		//		entites.add(new ZombieDisco(8,3)); //Je fait spawner un zombie au dessus de la 4eme ligne
 		//		entites.add(new BasicZombie(8,3));
 
-		money = 950;
+		money = 50;
 
 		timerSun = new Timer(6500);
 		timerZombie = new Timer(Timerdifficulty);
@@ -251,9 +254,10 @@ public class GameWorld {
 		return mouseY;
 	}
 
-
-	public void refreshSoleils()
-	{
+	/**
+	 * Fonction qui permet de faire apparaitre un Soleil tout les x temps
+	 */
+	public void refreshSoleils() {
 		if (timerSun.hasFinished()) {
 			int x = rand.nextInt(8);
 			int y = rand.nextInt(4);
@@ -261,7 +265,9 @@ public class GameWorld {
 			timerSun.restart();
 		}
 	}
-
+	/**
+	 * Fonction qui va augmenter la difficulte du jeu des qu'un certains nombre de Zombie tues a ete atteint
+	 */
 	public void setDifficulty() {
 		if(nbZombieKilled < 10) {
 			nbPossibZomb = 15;
@@ -286,9 +292,10 @@ public class GameWorld {
 
 	}
 
-	//A FAIRE
-	//Reduire le temps de Timer tout les 10Zombie Tues
-	//Reduire les randInt type avec le temps pour avoir des Zombie plus puissant
+	/**
+	 * Fonction qui permet de faire apparaitre des Zombie tout les x temps 
+	 * en augmentant la difficulte grace a la fonction setDifficulty()
+	 */
 	public void refreshZombie() {
 		if(debut.hasFinished() && nbZombieSpawn < MAX_ZOMBIE) {
 			if(timerZombie.hasFinished()) {
@@ -339,7 +346,9 @@ public class GameWorld {
 		refresh();
 		buffCreate.clear();
 	}
-
+	/**
+	 * Ajoute ou supprime de la Liste entites les elements des Buffer de creation ou suppression
+	 */
 	public void refresh() {
 		//System.out.println(buffCreate.toString());
 
@@ -359,7 +368,7 @@ public class GameWorld {
 		buffDelete.clear();
 	}
 
-	// dessine les entites du jeu
+	/** dessine le monde ainsi que les entites du jeu */
 	public void dessine() {
 
 		// Ici vous pouvez afficher du décors 		
@@ -441,13 +450,29 @@ public class GameWorld {
 	}
 
 
-
+	/**
+	 * Fonction qui nous dit si on a gagner
+	 * @return true ssi on a gagner
+	 */
 	public static boolean gameWon() {
-		if(nbZombieKilled == MAX_ZOMBIE) gameWon = true;
+		if(nbZombieKilled >= MAX_ZOMBIE) {
+			for(Entite e : entites) {
+				if(e instanceof Zombies)
+					return false;
+			}
+			gameWon = true;		
+		}
 		return gameWon;
 	}
-
+	/**
+	 * Fonction qui nous dit si on a perdu
+	 * @return true ssi on a perdu (Un zombie est arrive tout a gauche)
+	 */
 	public static boolean gameLost() {
+		for(Entite e : entites) {
+			if(e instanceof Zombies)
+				if(e.position.getX() <= 0.03) return true;
+		}
 		return gameLost;
 	}
 
