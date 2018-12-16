@@ -40,8 +40,11 @@ public class Cold_TirePois extends Plant {
 			StdDraw.picture(this.position.getX(), this.position.getY(), GameWorld.repoImages + "/coldTirePois.png"
 					,TirePois_SIZE,TirePois_SIZE*Main.mult);
 	}
-	static boolean getDispo()
-	{
+	/**
+	 * Permet de verifier la disponibilite de la Plante
+	 * @return true ssi la Plante est disponible a ce moment precis
+	 */
+	static boolean getDispo() {
 		if (timer.hasFinished())
 			statut = true;
 		if ((statut & GameWorld.money >= cost)) {

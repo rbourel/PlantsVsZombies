@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @author Rodrigue
+ * @author Vincent
+ *
+ */
 public abstract class Plant extends Entite {
 	private int cost;
 	private int cooldown;

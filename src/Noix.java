@@ -15,7 +15,10 @@ public class Noix extends Plant {
 		statut = false;
 		//timer.restart();
 	}
-
+	/**
+	 * Permet de verifier la disponibilite de la Plante
+	 * @return true ssi la Plante est disponible a ce moment precis
+	 */
 	static boolean getDispo()  {
 		if (timer.hasFinished())
 			statut = true;

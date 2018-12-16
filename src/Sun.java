@@ -1,7 +1,9 @@
 
 public class Sun extends Entite {
 	private static final double SUN_SIZE = 0.08;
+	/** Timer de suppression du Soleil du GameWorld naturellement */
 	private Timer time;
+	/** Supprime le Soleil du GameWorld ssi statut = true */
 	private boolean statut;
 	protected int posX;
 	protected int posY;

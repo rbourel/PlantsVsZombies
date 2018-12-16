@@ -2,17 +2,22 @@
 
 /**
  * 
- * @author Rodrigue
+ * @author Rodrigue, Vincent
  *Le but du Jeu est de tuez les Zombie grace au nombreuses Plantes presentes dans le jeu
  *La Partie est gagnez quand vous avez Tuez le nombre de Zombie equivalent à la variable finale MaxZombie de GameWorld
  */
 public class Main {
-
+	/** Taille en longueur de la fenetre de jeu */
 	public static final int width =1024;
+	/** Taille en largeur de la fenetre de jeu */
 	public static final int height = 600;
+	/** Divise la longueur par la largeur pour permettre aux image au format .png de ne pas etre aplati */
 	public static final double mult = (double)width/(double)height; 
+	/** Menu des Zombie, l'affiche si menuZ est egale a True */
 	public static boolean menuZ = false;
+	/** Menu des Plante, l'affiche si menuP est egale a True */
 	public static boolean menuP = false;
+	/** Lance le jeu quand launch est egale a True */
 	public static boolean launch = false;
 
 	public static void main(String[] args) {

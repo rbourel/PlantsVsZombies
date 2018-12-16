@@ -23,12 +23,24 @@ public class Zombies extends Entite {
 		// TODO Auto-generated method stub
 
 	}
+	/**
+	 * Recupere le nombre de point de vie du Zombie
+	 * @return le nombre de point de vie du Zombie
+	 */
 	public int getHp() {
 		return hp;
 	}
+	/**
+	 * Modifier le nombre de point de vie du Zombie
+	 * @param hp modifie le nombre d'hp du Zombie
+	 */
 	public void setHp(int hp) {
 		this.hp = hp;
 	}
+	/**
+	 * Recupere la vitesse du Zombie
+	 * @return la vitesse du Zombie
+	 */
 	public double getSpeed() {
 		return speed;
 	}
@@ -47,6 +59,9 @@ public class Zombies extends Entite {
 
 	}
 	@Override
+	/**
+	 * Change la vitesse des Entite, particulierement utilse pour les Zombie qui peuvent changer de vitesse si ils sont touchez par un Pois Gele (class ColdPea)
+	 */
 	public void setSpeed(double speed) {
 		// TODO Auto-generated method stub
 

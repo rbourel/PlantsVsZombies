@@ -1,4 +1,9 @@
-
+/**
+ * 
+ * @author Rodrigue
+ *@author Vincent
+ *
+ */
 public class InformationsEntite {
 
 	/** 

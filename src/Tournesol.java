@@ -43,7 +43,10 @@ public class Tournesol extends Plant {
 					,Tournesol_SIZE,Tournesol_SIZE*Main.mult);
 		}
 	}
-
+	/**
+	 * Permet de verifier la disponibilite de la Plante
+	 * @return true ssi la Plante est disponible a ce moment precis
+	 */
 	static boolean getDispo()	{
 		if (timerDispo.hasFinished())
 			statut = true;
@@ -54,7 +57,10 @@ public class Tournesol extends Plant {
 		}
 		return dispo;
 	}
-
+	/**
+	 * 
+	 * @return le prix de la Plante
+	 */
 	public static int getPrize() {
 		// TODO Auto-generated method stub
 		return cost;

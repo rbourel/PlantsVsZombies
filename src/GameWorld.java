@@ -65,9 +65,9 @@ public class GameWorld {
 
 
 
-	//Pour savoir si la partie est gagnee ou pas
+	/**Pour savoir si la partie est gagnee ou pas */
 	public static boolean gameWon;
-	// Idem pour savoir si le jeu est perdu (si le jeu n'est ni gagne ni perdu, il est en cours)
+	/** Idem pour savoir si le jeu est perdu (si le jeu n'est ni gagne ni perdu, il est en cours) */
 	public static boolean gameLost;
 
 	// constructeur, il faut initialiser notre monde virtuel
@@ -221,8 +221,8 @@ public class GameWorld {
 			double y = StdDraw.mouseY();
 
 			Position p = Grid.worldToGrid(x, y);
-			if(Grid.emptyCase(p)) System.out.println("Il n'y a pas de plante ici");
-			else {
+			if(Grid.emptyCase(p))System.out.println("Il n'y a pas de plante ici");
+			else if (p.getY() < 5) { //Eviter les erreurs  ArraysIndexOutBoundsException
 				Entite t = plantGrid[(int)p.getX()][(int)p.getY()];
 				buffDelete.add(t);
 				System.out.println(buffDelete.toString());
@@ -245,11 +245,17 @@ public class GameWorld {
 	public static boolean isMouseClick() {
 		return mouseClick;
 	}
-
+	/**
+	 * Position x dans la grille de Plant
+	 * @return la position de la case en longueur ou nous sommes
+	 */
 	public static int getMouseX() {
 		return mouseX;
 	}
-
+	/**
+	 * Position y dans la grille Plant
+	 * @return la position de la case en largeur ou nous sommes
+	 */
 	public static int getMouseY() {
 		return mouseY;
 	}
